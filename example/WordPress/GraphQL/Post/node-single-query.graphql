@@ -1,0 +1,77 @@
+query SINGLE_CONTENT_QUERY($id: ID!) {
+  post(id: $id) {
+    author {
+      node {
+        id
+      }
+    }
+    authorDatabaseId
+    authorId
+    categories(first: 100) {
+      nodes {
+        id
+      }
+    }
+    commentCount
+    commentStatus
+    comments(first: 100) {
+      nodes {
+        id
+      }
+    }
+    content
+    contentType {
+      node {
+        id
+      }
+    }
+    databaseId
+    date
+    dateGmt
+    desiredSlug
+    enclosure
+    excerpt
+    featuredImage {
+      node {
+        id
+        sourceUrl
+      }
+    }
+    featuredImageDatabaseId
+    featuredImageId
+    guid
+    id
+    isRevision
+    lastEditedBy {
+      node {
+        id
+      }
+    }
+    link
+    modified
+    modifiedGmt
+    pingStatus
+    pinged
+    postFormats(first: 100) {
+      nodes {
+        id
+      }
+    }
+    slug
+    status
+    tags(first: 100) {
+      nodes {
+        id
+      }
+    }
+    terms(first: 100) {
+      nodes {
+        id
+      }
+    }
+    title
+    toPing
+    uri
+    __typename
+  }
+}

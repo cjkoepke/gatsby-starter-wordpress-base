@@ -1,0 +1,16 @@
+{
+  "name": "gatsby-theme-wp-scaffold-workspace",
+  "private": true,
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "clean": "yarn workspace example clean",
+    "develop": "yarn workspace example develop",
+    "build": "yarn workspace example build"
+  },
+  "workspaces": [
+    "gatsby-theme-wp-scaffold",
+    "example"
+  ]
+}

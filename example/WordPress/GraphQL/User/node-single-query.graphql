@@ -1,0 +1,55 @@
+query SINGLE_CONTENT_QUERY($id: ID!) {
+  user(id: $id) {
+    avatar {
+      default
+      extraAttr
+      forceDefault
+      foundAvatar
+      height
+      rating
+      scheme
+      size
+      url
+      width
+    }
+    capKey
+    capabilities
+    comments(first: 100) {
+      nodes {
+        id
+      }
+    }
+    databaseId
+    description
+    email
+    extraCapabilities
+    firstName
+    id
+    lastName
+    locale
+    name
+    nicename
+    nickname
+    pages(first: 100) {
+      nodes {
+        id
+      }
+    }
+    posts(first: 100) {
+      nodes {
+        id
+      }
+    }
+    registeredDate
+    roles(first: 100) {
+      nodes {
+        id
+      }
+    }
+    slug
+    uri
+    url
+    username
+    __typename
+  }
+}

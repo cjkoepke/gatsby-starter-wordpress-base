@@ -1,0 +1,9 @@
+query SINGLE_CONTENT_QUERY($id: ID!) {
+  userRole(id: $id) {
+    capabilities
+    displayName
+    id
+    name
+    __typename
+  }
+}

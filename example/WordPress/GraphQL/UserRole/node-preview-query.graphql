@@ -1,0 +1,9 @@
+query PREVIEW_QUERY($id: ID!) {
+  userRole(id: $id, idType: ID, asPreview: true) {
+    capabilities
+    displayName
+    id
+    name
+    __typename
+  }
+}

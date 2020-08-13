@@ -1,0 +1,15 @@
+query NODE_LIST_QUERY($first: Int!, $after: String) {
+  userRoles(first: $first, after: $after) {
+    nodes {
+      capabilities
+      displayName
+      id
+      name
+      __typename
+    }
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+  }
+}

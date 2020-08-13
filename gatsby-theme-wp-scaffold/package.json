@@ -1,0 +1,32 @@
+{
+  "name": "gatsby-theme-wp-scaffold",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "author": {
+    "name": "Calvin Koepke",
+    "email": "hello@calvinkoepke.com"
+  },
+  "scripts": {
+    "build": "gatsby build",
+    "clean": "gatsby clean",
+    "develop": "gatsby develop"
+  },
+  "peerDependencies": {
+    "gatsby": "^2.24.47",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "gatsby": "^2.24.47",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "dependencies": {
+    "gatsby-plugin-sharp": "^2.6.27",
+    "gatsby-source-filesystem": "^2.3.24",
+    "gatsby-source-wordpress-experimental": "^1.3.6",
+    "gatsby-transformer-sharp": "^2.5.13",
+    "mkdirp": "^1.0.4"
+  }
+}
