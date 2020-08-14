@@ -2,6 +2,11 @@ const fs = require('fs');
 const path = require('path');
 const mkdirp = require('mkdirp');
 
+// Queries
+const {
+  GetAllPosts
+} = require('./node/queries');
+
 exports.onPreBootstrap = ({ store, reporter }) => {
   const { program } = store.getState();
 
@@ -15,4 +20,17 @@ exports.onPreBootstrap = ({ store, reporter }) => {
       mkdirp.sync(dir);
     }
   });
+}
+
+exports.createPages = async ({ actions, graphql, reporter }) => {
+  const posts = await GetAllPosts(graphql, reporter);
+  posts && posts.forEach(post => {
+    actions.createPage({
+      path: post.slug,
+      component: require.resolve('./src/templates/post.js'),
+      context: {
+        id: post.id
+      }
+    })
+  })
 }

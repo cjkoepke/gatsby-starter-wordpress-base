@@ -3,7 +3,10 @@ module.exports = {
     {
       resolve: `gatsby-theme-wp-scaffold`,
       options: {
-        url: `https://blog.calvinkoepke.com/graphql`,
+        sourceOptions: {
+          url: `https://blog.calvinkoepke.com/graphql`,
+          verbose: true
+        }
       }
     }
   ]

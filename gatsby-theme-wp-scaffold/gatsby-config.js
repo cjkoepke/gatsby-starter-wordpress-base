@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-module.exports = ({ url }) => {
+module.exports = ({ sourceOptions: { url, ...rest } }) => {
   return {
     plugins: [
       `gatsby-plugin-sharp`,
@@ -16,15 +16,7 @@ module.exports = ({ url }) => {
         resolve: `gatsby-source-wordpress-experimental`,
         options: {
           url: url || `https://demo.wpgraphql.com/graphql`,
-          verbose: true,
-          develop: {
-            hardCacheMediaFiles: true,
-          },
-          debug: {
-            graphql: {
-              writeQueriesToDisk: true,
-            },
-          }
+          ...rest
         },
       }
     ]
