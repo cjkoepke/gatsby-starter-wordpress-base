@@ -18,9 +18,11 @@
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
+    "@types/react": "^16.9.47",
     "gatsby": "^2.24.47",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "typescript": "^4.0.2"
   },
   "dependencies": {
     "gatsby-plugin-sharp": "^2.6.27",

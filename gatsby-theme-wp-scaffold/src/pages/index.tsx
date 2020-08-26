@@ -1,11 +1,9 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql, Link, PageProps, Page } from 'gatsby';
+import { AllPostsType } from '../helpers/fragments';
 
-export default ({ data: {
-  allWpPost: {
-    nodes
-  }
-} }) => {
+export default ({ data }: PageProps) => {
+  const {allWpPost: { nodes }}: AllPostsType = data;
   return (
     <div>
       <h1>Home!</h1>
