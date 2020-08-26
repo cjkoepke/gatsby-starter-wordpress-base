@@ -2,7 +2,7 @@ import React from 'react';
 import Core from './core';
 import supportedBlocks from './supported';
 
-const BlockComponent = ({ name, attributes }) => {
+const BlockComponent: React.SFC<{ name: string, attributes: any}> = ({ name, attributes }) => {
   if ( ! name || ! supportedBlocks.includes(name) ) {
     return null;
   }
