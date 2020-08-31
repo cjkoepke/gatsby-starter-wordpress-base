@@ -1,11 +1,12 @@
 import React from 'react';
 import { graphql, Link, PageProps, Page } from 'gatsby';
-import { allWpPostType } from '../types/wpgraphql';
+import { allWpPageType } from '../types/wpgraphql';
+import Layout from '../components/layout';
 
 export default ({ data }: PageProps) => {
-  const {allWpPost: { nodes }}: allWpPostType = data;
+  const {allWpPage: { nodes }}: allWpPageType = data;
   return (
-    <div>
+    <Layout>
       <h1>Home!</h1>
       {nodes
         ? (
@@ -20,12 +21,12 @@ export default ({ data }: PageProps) => {
         ) : (
           <p>Looks like you need to publish some posts!</p>
         )}
-    </div>
+    </Layout>
   )
 }
 
 export const query = graphql`
   query Home {
-    ...AllPosts
+    ...AllPages
   }
 `

@@ -23,3 +23,24 @@ export type allWpPostType =  {
     }[]
   }
 }
+
+export type allWpPageType =  {
+  allWpPage?: {
+    nodes?: {
+      authorDatabaseId?: number,
+      authorId?: number,
+      blocksJSON?: string,
+      content?: string,
+      title?: string,
+      commentCount?: number,
+      comments?: {
+        nodes?: {
+          id?: number
+        }
+      },
+      date?: string,
+      featuredImageId?: number,
+      slug?: string
+    }[]
+  }
+}

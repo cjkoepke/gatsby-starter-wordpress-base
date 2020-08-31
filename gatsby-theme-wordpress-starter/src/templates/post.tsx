@@ -1,14 +1,15 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Blocks from '../blocks';
+import Layout from '../components/layout';
 
 export default ({ data }) => {
   const { title, blocksJSON } = data.wpPost;
   return (
-    <div>
+    <Layout>
       <h1>{title}</h1>
       <Blocks json={blocksJSON} />
-    </div>
+    </Layout>
   )
 }
 

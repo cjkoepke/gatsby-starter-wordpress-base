@@ -1,0 +1,46 @@
+Arguments: 
+  /Users/cjkoepke/.nvm/versions/node/v12.16.1/bin/node /usr/local/Cellar/yarn/1.21.1/libexec/bin/yarn.js workspaces info
+
+PATH: 
+  /usr/local/opt/mysql-client/bin:/Users/cjkoepke/.autojump/bin:/usr/local/opt/php@7.2/sbin:/usr/local/opt/php@7.2/bin:/Users/cjkoepke/.nvm/versions/node/v12.16.1/bin:/Users/cjkoepke/.composer/vendor/bin:/Users/cjkoepke/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/opt/mysql-client/bin:/Users/cjkoepke/.antigen/bundles/robbyrussell/oh-my-zsh/lib:/Users/cjkoepke/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/git:/Users/cjkoepke/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/heroku:/Users/cjkoepke/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/pip:/Users/cjkoepke/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/lein:/Users/cjkoepke/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/command-not-found:/Users/cjkoepke/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/autojump:/Users/cjkoepke/.antigen/bundles/zsh-users/zsh-syntax-highlighting
+
+Yarn version: 
+  1.21.1
+
+Node version: 
+  12.16.1
+
+Platform: 
+  darwin x64
+
+Trace: 
+  SyntaxError: /Users/cjkoepke/Repos/gatsby-theme-wp-scaffold/example/package.json: Unexpected token } in JSON at position 339
+      at JSON.parse (<anonymous>)
+      at /usr/local/Cellar/yarn/1.21.1/libexec/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/usr/local/Cellar/yarn/1.21.1/libexec/lib/cli.js:310:30)
+      at /usr/local/Cellar/yarn/1.21.1/libexec/lib/cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "gatsby-theme-wordpress-starter-workspace",
+    "private": true,
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+      "clean": "yarn workspace example clean",
+      "develop": "yarn workspace example develop",
+      "build": "yarn workspace example build"
+    },
+    "workspaces": [
+      "gatsby-theme-wordpress-starter",
+      "example"
+    ]
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

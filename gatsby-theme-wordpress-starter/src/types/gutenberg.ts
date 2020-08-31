@@ -1,4 +1,4 @@
 export type ParagraphAttributeTypes = {
-  dropCap: bool,
+  dropCap: boolean,
   content: string
 };

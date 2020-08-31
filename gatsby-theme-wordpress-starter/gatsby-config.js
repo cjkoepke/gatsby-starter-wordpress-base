@@ -1,10 +1,9 @@
-require('dotenv').config();
-
 module.exports = ({ sourceOptions: { url, ...rest } }) => {
   return {
     plugins: [
       `gatsby-plugin-sharp`,
       `gatsby-transformer-sharp`,
+      `gatsby-plugin-postcss`,
       {
         resolve: `gatsby-source-filesystem`,
         options: {
@@ -15,10 +14,10 @@ module.exports = ({ sourceOptions: { url, ...rest } }) => {
       {
         resolve: `gatsby-source-wordpress-experimental`,
         options: {
-          url: url || `https://demo.wpgraphql.com/graphql`,
+          url: url || `http://gatsby-theme-wordpress-test-data.calvinkoepke.com/graphql`,
           ...rest
         },
-      }
+      },
     ]
   };
 }

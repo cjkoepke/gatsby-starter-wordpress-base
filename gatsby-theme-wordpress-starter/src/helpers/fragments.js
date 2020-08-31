@@ -25,3 +25,23 @@ export const AllPosts = graphql`
     }
   }
 `
+export const AllPages = graphql`
+  fragment AllPages on Query {
+    allWpPage(filter: {status: {eq: "publish"}}) {
+      nodes {
+        title
+        authorId
+        commentCount
+        comments {
+          nodes {
+            id
+          }
+        }
+        content
+        date
+        featuredImageId
+        slug
+      }
+    }
+  }
+`
