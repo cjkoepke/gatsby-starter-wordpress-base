@@ -13,16 +13,6 @@ This project aims to create an opinionated boilerplate for building WordPress we
 ## Why
 WordPress and Gatsby have seen rising popularity lately, as well as the headless WordPress ecosystem. The power and flexibility of Gatsby in particular, as well as it's favorability toward GraphQL and the recent initiative to build a GraphQL Schema directly into WordPress through [WPGraphQL](https://github.com/wp-graphql/wp-graphql), make building a boilerplate obvious and exciting.
 
-### Why CSS-in-JS
-I was torn on this. I personally don't like CSS-in-JS, but it has some benefits that felt like they worked well with the project as a whole:
-
-- Ability to isolate components into a relationally-aware package.
-- Allows nested targeting, something that CSS Modules usually don't allow.
-- Since this theme can inherit a parent/child relationship with users, overriding a component and it's styles in a single file was hard to ignore.
-- I've never built anything with CSS-in-JS
-
-All of these reasons and my own curiosity made me choose this approach. If you don't like it, create your own overrides and use a different system!
-
 ## Development
 This project uses Yarn workspaces for easy development.
 
