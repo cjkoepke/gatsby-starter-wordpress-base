@@ -11,7 +11,7 @@ const {
 exports.onPreBootstrap = ({ store, reporter }) => {
   const { program } = store.getState();
   const images = path.join(program.directory, 'src/assets/images');
-  const tailwind  = path.join(program.directory, '/src/gatsby-theme-wordpress-starter');
+  const tailwind  = path.join(program.directory, 'tailwind.config.js');
 
   if ( !fs.existsSync(images) ) {
     reporter.info(`Building the images path.`);
@@ -20,8 +20,7 @@ exports.onPreBootstrap = ({ store, reporter }) => {
 
   if ( !fs.existsSync(tailwind) ) {
     reporter.info(`Building the TailwindCSS path and adding template.`);
-    mkdirp.sync(tailwind);
-    fs.copyFileSync(`${__dirname}/tailwind.config.js`, `${tailwind}/tailwind.config.js`);
+    fs.copyFileSync(`${__dirname}/tailwind.config.js`, tailwind);
   }
 }
 

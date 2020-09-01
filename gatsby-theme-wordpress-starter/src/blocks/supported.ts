@@ -1,4 +1,4 @@
 export default [
   'core/paragraph',
-  'core/image'
+  'core/heading'
 ];

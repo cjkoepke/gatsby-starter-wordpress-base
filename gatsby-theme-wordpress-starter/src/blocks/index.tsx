@@ -8,10 +8,11 @@ const BlockComponent: React.SFC<{ name: string, attributes: object}> = ({ name, 
   }
 
   const Block  = Core[name];
-  return <Block {...attributes} />;
+  return Block ? <Block {...attributes} /> : null;
 }
 
 export default ({ json }) => {
   const blocks = JSON.parse(json);
+  console.log(blocks);
   return blocks && blocks.map((block, index: number) => <BlockComponent key={`${block.postId}-${block.name}-${index}`} {...block} />);
 }
