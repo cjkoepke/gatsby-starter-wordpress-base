@@ -5,9 +5,6 @@ module.exports = {
       options: {
         sourceOptions: {
           verbose: true,
-        },
-        blocks: {
-          'namespace': './path/here'
         }
       }
     }
