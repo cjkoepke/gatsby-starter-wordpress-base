@@ -1,26 +1,22 @@
 import React, { ReactElement } from 'react';
-import CoreBlocks from './core';
+import supportedBlocks from './supported';
 
 type Props = {
   name: string,
   attributes: object
 };
 
-export const SupportedBlocks = {
-  core: CoreBlocks
-};
-
-const Block: React.SFC<Props> = ({ name, attributes }): ReactElement | null => {
-  const keys: string[] = Object.keys(SupportedBlocks);
+const Block: React.SFC<Props> = ({ name: block, attributes }): ReactElement | null => {
+  const namespaces: string[] = Object.keys(supportedBlocks);
   let BlockComponent = null;
-  
-  keys.forEach((key: string) => {
-    const library = SupportedBlocks[key] || null;
-    if ( library[name] ) {
-      BlockComponent = library[name];
+
+  namespaces.forEach((namespace: string) => {
+    const library = supportedBlocks[namespace] || null;
+    if ( library[block] ) {
+      BlockComponent = library[block];
     }
   });
-  
+
   return null !== BlockComponent ? <BlockComponent {...attributes} /> : null;
 };
 

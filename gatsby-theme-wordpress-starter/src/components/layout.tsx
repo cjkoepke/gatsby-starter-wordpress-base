@@ -1,7 +1,7 @@
-import React, { ElementType } from 'react';
+import React, { ReactElement } from 'react';
 import { PageProps } from 'gatsby';
 
-const Layout: React.SFC<{ children: any }> = ({ children }: PageProps) => (
+const Layout: React.SFC<{ children: any }> = ({ children }: PageProps): ReactElement => (
     <main className={`container mx-auto`}>
         {children}
     </main>

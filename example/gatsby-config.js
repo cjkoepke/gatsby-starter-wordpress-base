@@ -4,7 +4,10 @@ module.exports = {
       resolve: `gatsby-theme-wordpress-starter`,
       options: {
         sourceOptions: {
-          verbose: true
+          verbose: true,
+        },
+        blocks: {
+          'namespace': './path/here'
         }
       }
     }
