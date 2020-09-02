@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Blocks from '../blocks';
+import { BlocksFromJSON } from '../components/blocks';
 import Layout from '../components/layout';
 
 export default ({ data }) => {
@@ -8,7 +8,7 @@ export default ({ data }) => {
   return (
     <Layout>
       <h1>{title}</h1>
-      <Blocks json={blocksJSON} />
+      <BlocksFromJSON json={blocksJSON} />
     </Layout>
   )
 }

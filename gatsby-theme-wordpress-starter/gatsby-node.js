@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const mkdirp = require('mkdirp');
+const deepmerge = require('deepmerge');
 
 // Queries
 const {
@@ -11,16 +12,10 @@ const {
 exports.onPreBootstrap = ({ store, reporter }) => {
   const { program } = store.getState();
   const images = path.join(program.directory, 'src/assets/images');
-  const tailwind  = path.join(program.directory, 'tailwind.config.js');
 
   if ( !fs.existsSync(images) ) {
     reporter.info(`Building the images path.`);
     mkdirp.sync(images);
-  }
-
-  if ( !fs.existsSync(tailwind) ) {
-    reporter.info(`Building the TailwindCSS path and adding template.`);
-    fs.copyFileSync(`${__dirname}/tailwind.config.js`, tailwind);
   }
 }
 

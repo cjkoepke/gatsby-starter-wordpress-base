@@ -9,6 +9,7 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "deepmerge": "^4.2.2",
     "gatsby": "^2.24.47",
     "gatsby-theme-wordpress-starter": "*",
     "react": "^16.13.1",

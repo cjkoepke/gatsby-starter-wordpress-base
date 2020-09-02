@@ -3,14 +3,7 @@ import HTMLParser from 'react-html-parser';
 
 type LevelsType = 1 | 2 | 3 | 4 | 5 | 6;
 
-type HeadingType = {
-    level: LevelsType,
-    children: any,
-    anchor: string,
-    content: string
-};
-
-const getClasses = (level: LevelsType ): string => {
+const getClasses = (level: LevelsType): string => {
     const classes: string[] = [
         'font-sans',
         'font-bold',
@@ -19,20 +12,29 @@ const getClasses = (level: LevelsType ): string => {
 
     switch ( level ) {
         case 1:
-            return [...classes, 'text-6xl'].join(' ');
+            classes.push('text-6xl');
+        case 3:
+            classes.push('text-4xl');
+        case 4:
+            classes.push('text-3xl');
+        case 5:
+            classes.push('text-2xl');
+        case 6:
+            classes.push('text-xl');
         case 2:
         default:
-            return [...classes, 'text-5xl'].join(' ');
-        case 3:
-            return [...classes, 'text-4xl'].join(' ');
-        case 4:
-            return [...classes, 'text-3xl'].join(' ');
-        case 5:
-            return [...classes, 'text-2xl'].join(' ');
-        case 6:
-            return [...classes, 'text-xl'].join(' ');
+            classes.push('text-5xl');
     }
+
+    return classes.join(' ');
 }
+
+type HeadingType = {
+    level: LevelsType,
+    children: any,
+    anchor: string,
+    content: string
+};
 
 const H = ({ level, children, anchor, ...rest }: HeadingType) => {
     return React.createElement(
