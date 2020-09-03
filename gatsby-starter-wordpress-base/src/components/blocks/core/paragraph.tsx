@@ -7,8 +7,10 @@ type ParagraphAttributeTypes = {
     anchor: string
 };
 
-export default ({ dropCap, content, anchor, ...rest }: ParagraphAttributeTypes): ReactElement => (
+const Paragraph: React.SFC<ParagraphAttributeTypes> = ({ dropCap, content, anchor, ...rest }) => (
     <p {...rest} id={anchor ? anchor : null}>
         {HTMLParser(content)}
     </p>
 );
+
+export default Paragraph;

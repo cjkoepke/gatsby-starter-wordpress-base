@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import HTMLParser from 'react-html-parser';
 
 type LevelsType = 1 | 2 | 3 | 4 | 5 | 6;
@@ -33,10 +33,10 @@ type HeadingType = {
     level: LevelsType,
     children: any,
     anchor: string,
-    content: string
+    content?: string
 };
 
-const H = ({ level, children, anchor, ...rest }: HeadingType) => {
+const H = ({ level, children, anchor, ...rest }: HeadingType): ReactElement => {
     return React.createElement(
         `h${level}`,
         Object.assign({
@@ -47,4 +47,6 @@ const H = ({ level, children, anchor, ...rest }: HeadingType) => {
     );
 }
 
-export default ({ level, content, ...rest }: HeadingType) => <H level={level} {...rest}>{HTMLParser(content)}</H>;
+const Heading: React.SFC<HeadingType> = ({ level, content, ...rest }) => <H level={level} {...rest}>{HTMLParser(content)}</H>;
+
+export default Heading;

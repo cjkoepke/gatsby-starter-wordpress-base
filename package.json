@@ -1,5 +1,5 @@
 {
-  "name": "gatsby-theme-wordpress-starter-workspace",
+  "name": "gatsby-starter-wordpress-base-workspace",
   "private": true,
   "version": "1.0.0",
   "main": "index.js",
@@ -10,7 +10,7 @@
     "build": "yarn workspace example build"
   },
   "workspaces": [
-    "gatsby-theme-wordpress-starter",
+    "gatsby-starter-wordpress-base",
     "example"
   ]
 }

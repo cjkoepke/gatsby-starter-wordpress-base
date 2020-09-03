@@ -1,7 +1,7 @@
 module.exports = {
   plugins: [
     {
-      resolve: `gatsby-theme-wordpress-starter`,
+      resolve: `gatsby-starter-wordpress-base`,
       options: {
         sourceOptions: {
           verbose: true,

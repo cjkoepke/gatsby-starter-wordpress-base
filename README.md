@@ -1,24 +1,59 @@
-# Gatsby + WP Scaffold
+# Gatsby Starter WordPress Base (GSWB)
 
+## Description
 This project aims to create an opinionated boilerplate for building WordPress websites using [GatsbyJS](https://gatsbyjs.com). Among other things, support and methods for this project hinge on:
 
 - Full Gutenberg Library
 - Encapsulated components that allow overriding.
-- Built on WPGraphQL
+- Built on WPGraphQL and Gutenberg
 - SEO handled by Yoast
 - More...
 
-**NOTE: This project is in development and NOT ready for production.**
+### Dependencies
+This project relies on a few plugins and technologies:
 
-## Why
-WordPress and Gatsby have seen rising popularity lately, as well as the headless WordPress ecosystem. The power and flexibility of Gatsby in particular, as well as it's favorability toward GraphQL and the recent initiative to build a GraphQL Schema directly into WordPress through [WPGraphQL](https://github.com/wp-graphql/wp-graphql), make building a boilerplate obvious and exciting.
+**Example**
+Directory: `/example`
 
-## Development
-This project uses Yarn workspaces for easy development.
+- `gatsby-starter-wordpress-base`
 
-1. Clone the project and `cd` into the root directory.
-2. Run `yarn install` to install all dependencies.
-3. Run `yarn workspace example develop` to start the example site.
+**GSWB**
+Directory: `/gatsby-starter-wordpress-base`
 
-## Contribute
-This project is in its early stages, but help is greatly appreciated. If you'd like to contribute, fork the project and create a PR with your changes.
+- `gatsby-plugin-postcss`
+- `gatsby-plugin-sharp`
+- `gatsby-transformer-sharp`
+- `gatsby-source-filesystem`
+- `gatsby-source-wordpress-experimental`
+- `tailwindcss`
+- `typescript`
+
+**WordPress**
+
+- [WPGraphQL](#)
+- [WPGraphQL Gutenberg](#)
+- [WPGraphQL Yoast](#)
+- [Yoast SEO](#)
+- [Gatsby](#)
+
+### Learning Resources (optional)
+If there are other tutorials, docs, and learning resources that are necessary or helpful to someone using this plugin, please link to those here.
+## How to install
+Please include installation instructions here.
+Gatsby documentation uses `npm` for installation. This is the recommended approach for plugins as well.
+If the plugin is a theme that needs to use `yarn`, please point to [the documentation for switching package managers](/docs/gatsby-cli/#how-to-change-your-default-package-manager-for-your-next-project) in addition to the `yarn`-based instructions.
+## Available options (if any)
+## When do I use this plugin?
+Include stories about when this plugin is helpful and/or necessary.
+## Examples of usage
+This usually shows a code example showing how to include this plugin in a site's `config.js` file.
+    code example
+//See this [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code) on how to format code examples.
+This section could also include before-and-after examples of data when the plugin is enabled, if applicable.
+## How to query for data (source plugins only)
+If this is a source plugin README, source plugins ought to allow people to query for data within their Gatsby site. Please include code examples to show how to query for data using your source plugin.
+If this is a theme that requires data in a specific format in order to match an existing query, include those examples here.
+## How to run tests
+## How to develop locally
+## How to contribute
+If you have unanswered questions, would like help with enhancing or debugging the plugin, it is nice to include instructions for people who want to contribute to your plugin.

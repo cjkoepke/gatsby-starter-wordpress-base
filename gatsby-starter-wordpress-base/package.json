@@ -1,5 +1,5 @@
 {
-  "name": "gatsby-theme-wordpress-starter",
+  "name": "gatsby-starter-wordpress-base",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -13,6 +13,7 @@
     "develop": "gatsby develop"
   },
   "peerDependencies": {
+    "deepmerge": "^4.2.2",
     "gatsby": "^2.24.47",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
@@ -20,12 +21,12 @@
   "devDependencies": {
     "@types/react": "^16.9.47",
     "gatsby": "^2.24.47",
+    "mkdirp": "^1.0.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-html-parser": "^2.0.2",
     "tailwindcss": "^1.7.6",
-    "typescript": "^4.0.2",
-    "mkdirp": "^1.0.4"
+    "typescript": "^4.0.2"
   },
   "dependencies": {
     "gatsby-plugin-postcss": "^2.3.11",
