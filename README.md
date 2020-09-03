@@ -12,12 +12,12 @@ This project aims to create an opinionated boilerplate for building WordPress we
 ### Dependencies
 This project relies on a few plugins and technologies:
 
-**Example**
+#### Example Site
 Directory: `/example`
 
 - `gatsby-starter-wordpress-base`
 
-**GSWB**
+#### GSWB
 Directory: `/gatsby-starter-wordpress-base`
 
 - `gatsby-plugin-postcss`
@@ -28,8 +28,7 @@ Directory: `/gatsby-starter-wordpress-base`
 - `tailwindcss`
 - `typescript`
 
-**WordPress**
-
+#### WordPress
 - [WPGraphQL](#)
 - [WPGraphQL Gutenberg](#)
 - [WPGraphQL Yoast](#)
