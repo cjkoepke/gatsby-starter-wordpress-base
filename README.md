@@ -3,11 +3,14 @@
 ## Description
 This project aims to create an opinionated boilerplate for building WordPress websites using [GatsbyJS](https://gatsbyjs.com). Among other things, support and methods for this project hinge on:
 
-- Full Gutenberg Library
-- Encapsulated components that allow overriding.
+- Core Gutenberg library support
+- Theme shadowing allows a parent/child theme development experience
+- Override or extend existing Core Gutenberg library support
+- Use [TailwindCSS](http://tailwindcss.com/) for components, or roll your own method
 - Built on WPGraphQL and Gutenberg
 - SEO handled by Yoast
-- More...
+- Support for TypeScript
+- Simple configuration
 
 ### Dependencies
 This project relies on a few plugins and technologies:
