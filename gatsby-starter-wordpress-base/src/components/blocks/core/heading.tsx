@@ -36,7 +36,7 @@ type HeadingType = {
     content?: string
 };
 
-const H = ({ level, children, anchor, ...rest }: HeadingType): ReactElement => {
+const H: React.FC<HeadingType> = ({ level, children, anchor, ...rest }) => {
     return React.createElement(
         `h${level}`,
         Object.assign({
@@ -47,6 +47,6 @@ const H = ({ level, children, anchor, ...rest }: HeadingType): ReactElement => {
     );
 }
 
-const Heading: React.SFC<HeadingType> = ({ level, content, ...rest }) => <H level={level} {...rest}>{HTMLParser(content)}</H>;
+const Heading: React.FC<HeadingType> = ({ level, content, ...rest }) => <H level={level} {...rest}>{HTMLParser(content)}</H>;
 
 export default Heading;

@@ -7,7 +7,7 @@ type ParagraphAttributeTypes = {
     anchor: string
 };
 
-const Paragraph: React.SFC<ParagraphAttributeTypes> = ({ dropCap, content, anchor, ...rest }) => (
+const Paragraph: React.FC<ParagraphAttributeTypes> = ({ dropCap, content, anchor, ...rest }) => (
     <p {...rest} id={anchor ? anchor : null}>
         {HTMLParser(content)}
     </p>
