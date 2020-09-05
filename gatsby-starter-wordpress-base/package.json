@@ -19,7 +19,9 @@
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
+    "@types/classnames": "^2.2.10",
     "@types/react": "^16.9.47",
+    "@types/react-html-parser": "^2.0.1",
     "gatsby": "^2.24.47",
     "mkdirp": "^1.0.4",
     "react": "^16.13.1",
@@ -29,6 +31,7 @@
     "typescript": "^4.0.2"
   },
   "dependencies": {
+    "classnames": "^2.2.6",
     "gatsby-plugin-postcss": "^2.3.11",
     "gatsby-plugin-sharp": "^2.6.27",
     "gatsby-source-filesystem": "^2.3.24",

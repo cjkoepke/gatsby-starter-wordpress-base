@@ -14,7 +14,7 @@ module.exports = ({ sourceOptions: { url, ...rest } }) => {
       {
         resolve: `gatsby-source-wordpress-experimental`,
         options: {
-          url: url || `http://gatsby-theme-wordpress-test-data.calvinkoepke.com/graphql`,
+          url: url || `https://gatsby-theme-wordpress-test-data.calvinkoepke.com/graphql`,
           ...rest
         },
       },
