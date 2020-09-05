@@ -12,14 +12,13 @@ This project aims to create an opinionated boilerplate for building WordPress we
 ### Dependencies
 This project relies on a few plugins and technologies:
 
-#### Example Site
-Directory: `/example`
-
-- `gatsby-starter-wordpress-base`
-
-#### GSWB
+#### Gatsby
 Directory: `/gatsby-starter-wordpress-base`
 
+- `react`
+- `react-dom`
+- `deepmerge`
+- `gatsby`
 - `gatsby-plugin-postcss`
 - `gatsby-plugin-sharp`
 - `gatsby-transformer-sharp`
@@ -29,30 +28,25 @@ Directory: `/gatsby-starter-wordpress-base`
 - `typescript`
 
 #### WordPress
-- [WPGraphQL](#)
-- [WPGraphQL Gutenberg](#)
-- [WPGraphQL Yoast](#)
-- [Yoast SEO](#)
-- [Gatsby](#)
+- [Gatsby](https://wordpress.org/plugins/wp-gatsby/)
+- [WPGraphQL](https://github.com/wp-graphql/wp-graphql)
+- [WPGraphQL Gutenberg](https://github.com/pristas-peter/wp-graphql-gutenberg)
+- [WPGraphQL Yoast](https://github.com/ashhitch/wp-graphql-yoast-seo) (optional)
+- [Yoast SEO](https://wordpress.org/plugins/wordpress-seo/) (optional)
 
-### Learning Resources (optional)
-If there are other tutorials, docs, and learning resources that are necessary or helpful to someone using this plugin, please link to those here.
-## How to install
-Please include installation instructions here.
-Gatsby documentation uses `npm` for installation. This is the recommended approach for plugins as well.
-If the plugin is a theme that needs to use `yarn`, please point to [the documentation for switching package managers](/docs/gatsby-cli/#how-to-change-your-default-package-manager-for-your-next-project) in addition to the `yarn`-based instructions.
-## Available options (if any)
-## When do I use this plugin?
-Include stories about when this plugin is helpful and/or necessary.
-## Examples of usage
-This usually shows a code example showing how to include this plugin in a site's `config.js` file.
-    code example
-//See this [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code) on how to format code examples.
-This section could also include before-and-after examples of data when the plugin is enabled, if applicable.
-## How to query for data (source plugins only)
-If this is a source plugin README, source plugins ought to allow people to query for data within their Gatsby site. Please include code examples to show how to query for data using your source plugin.
-If this is a theme that requires data in a specific format in order to match an existing query, include those examples here.
-## How to run tests
+## How to use this theme
+If you want to just use the starter theme, follow the [example site](https://github.com/cjkoepke/gatsby-starter-wordpress-base/tree/master/example) instructions.
+
 ## How to develop locally
+For development purposes, this theme uses `yarn`. Here's [the documentation for switching package managers](/docs/gatsby-cli/#how-to-change-your-default-package-manager-for-your-next-project) in addition to the `yarn`-based instructions.
+
+1. Clone the entire repo.
+2. Run `yarn install`
+3. Run `yarn workspace example develop`
+4. Begin editing the local package in `/gatsby-starter-wordpress-base`!
+
 ## How to contribute
-If you have unanswered questions, would like help with enhancing or debugging the plugin, it is nice to include instructions for people who want to contribute to your plugin.
+1. Fork this repo
+2. Follow the instructions above for developing locally
+3. Make your changes on a new branch
+4. Submit a PR on the [main project](https://github.com/cjkoepke/gatsby-starter-wordpress-base) with your changes.
