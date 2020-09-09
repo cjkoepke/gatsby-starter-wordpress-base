@@ -1,5 +1,13 @@
-module.exports = ({ sourceOptions: { url, ...rest } }) => {
+module.exports = ({
+  sourceOptions: {
+    url,
+    ...rest
+  }
+}) => {
   return {
+    siteMetadata: {
+      baseUrl: `gatsby-theme-wordpress-test-data.calvinkoepke.com`
+    },
     plugins: [
       `gatsby-plugin-sharp`,
       `gatsby-transformer-sharp`,

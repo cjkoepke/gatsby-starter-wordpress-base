@@ -1,13 +1,15 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { BlocksFromJSON } from '../components/blocks';
+
+import Heading from '../components/blocks/core/heading';
 import Layout from '../components/layout';
 
 export default ({ data }) => {
   const { title, blocksJSON } = data.wpPage;
   return (
     <Layout>
-      <h1>{title}</h1>
+      <Heading content={title} level={1} />
       <BlocksFromJSON json={blocksJSON} />
     </Layout>
   )

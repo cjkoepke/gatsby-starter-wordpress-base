@@ -1,9 +1,5 @@
 @tailwind base;
 
-h1 {
-    @apply text-lg;
-}
-
 a {
     @apply text-orange-400;
 }

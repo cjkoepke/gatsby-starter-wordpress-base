@@ -1,4 +1,5 @@
 import React from 'react';
+import { removeClassesFromArray } from '../../../helpers/functions';
 import classnames from 'classnames';
 
 export type SeparatorAttributeType = {
@@ -6,25 +7,35 @@ export type SeparatorAttributeType = {
   className?: string
 };
 
-export const isStyleWide = (className: string): boolean => -1 !== className.indexOf(`is-style-wide`);
-export const isStyleDots = (className: string): boolean => -1 !== className.indexOf(`is-style-dots`);
-
 const normalizeClassNames = (className: string) => {
-  let newClassNames = classnames('border-0 border-t-4 border-gray-200 my-10 mx-auto w-1/4', className);
-  if ( isStyleWide(newClassNames) ) {
-    newClassNames = newClassNames.replace(/is-style-wide/gi, 'w-full');
+  const twClasses = classnames('border-0 border-t-4 border-gray-200 my-10 mx-auto w-1/4', className).split(' ');
+
+  if ( twClasses.includes( 'is-style-wide' ) ) {
+    return classnames(
+      removeClassesFromArray([
+        'is-style-wide',
+        'w-1/4'
+      ], twClasses),
+      'w-full'
+    );
   }
 
-  if ( isStyleDots(newClassNames) ) {
-    newClassNames = newClassNames.replace(/is-style-dots/gi, 'border-dashed');
-    newClassNames = newClassNames.replace(/border-gray-200/gi, 'border-gray-400');
+  if ( twClasses.includes( 'is-style-dots' ) ) {
+    return classnames(
+      removeClassesFromArray([
+        'border-gray-200',
+        'is-style-dots'
+      ], twClasses),
+      'border-dashed',
+      'border-gray-400'
+    );
   }
 
-  return newClassNames;
+  return twClasses.join(' ');
 }
 
-const Separator: React.FC<SeparatorAttributeType> = ({ anchor: id, className, ...rest }) => (
-  <hr id={id ? id : null} className={normalizeClassNames(className)} {...rest} />
+const Separator: React.FC<SeparatorAttributeType> = ({ anchor, className, ...rest }) => (
+  <hr id={anchor || null} className={normalizeClassNames(className)} {...rest} />
 );
 
 export default Separator;
