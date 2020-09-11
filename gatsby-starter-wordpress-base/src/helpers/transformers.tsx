@@ -3,6 +3,9 @@ import { Link } from 'gatsby';
 import { getSiteMetadata } from './hooks';
 import { convertNodeToElement } from 'react-html-parser';
 
+// Block Library
+import allBlocks from '../components/blocks/supported';
+
 export const transformLinks: React.FC<{
     type: string,
     name: string,
@@ -10,11 +13,13 @@ export const transformLinks: React.FC<{
     attribs: {
         href: string
     }
-}> = ({ type, name, children, attribs }, index) => {
+}> = (props, index) => {
+    const { type, name, children, attribs } = props;
+
+    // Catch links.
     if ('tag' === type && 'a' === name ) {
         const { href, ...rest } = attribs;
         const { baseUrl } = getSiteMetadata();
-        
         const url = new URL(href);
         if ( url.hostname === baseUrl ) {
             return (

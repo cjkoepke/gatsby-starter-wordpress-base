@@ -1,0 +1,21 @@
+ol {
+    @apply list-decimal;
+}
+
+ul {
+    @apply list-disc;
+}
+
+ol,
+ul {
+    @apply my-10 pl-10 leading-8;
+
+    & {
+        @apply ml-10;
+    }
+}
+
+ul ul,
+ol ol {
+    @apply ml-10 my-0 pl-0;
+}

@@ -1,4 +1,4 @@
-exports.GetAllPosts = async graphql => {
+exports.GetAllPostsQuery = async (graphql, reporter) => {
   const result = await graphql(`
     query {
       allWpPost(filter: {status: {eq: "publish"}}) {
@@ -17,7 +17,7 @@ exports.GetAllPosts = async graphql => {
   return result.data.allWpPost.nodes;
 }
 
-exports.GetAllPages = async graphql => {
+exports.GetAllPagesQuery = async (graphql, reporter) => {
   const result = await graphql(`
     query {
       allWpPage(filter: {status: {eq: "publish"}}) {

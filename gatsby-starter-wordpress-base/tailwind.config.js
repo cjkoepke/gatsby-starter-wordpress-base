@@ -3,7 +3,13 @@ const fs = require('fs');
 
 const getConfig = () => {
   const defaults = {
-    purge: ["./src/**/*.js", "./src/**/*.jsx", "./src/**/*.ts", "./src/**/*.tsx"],
+    purge: [
+      "./src/**/*.html",
+      "./src/**/*.jsx",
+      "./src/**/*.ts",
+      "./src/**/*.tsx",
+      "./src/**/*.css"
+    ],
     theme: {
       screens: {
         sm: '640px',

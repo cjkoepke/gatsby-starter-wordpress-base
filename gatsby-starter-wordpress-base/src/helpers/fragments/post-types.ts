@@ -1,4 +1,4 @@
-import { graphql } from 'gatsby';
+import { graphql, GatsbyGraphQLObjectType } from 'gatsby';
 
 export const AllPosts = graphql`
   fragment AllPosts on Query {

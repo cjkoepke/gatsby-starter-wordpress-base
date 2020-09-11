@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql, Link, PageProps, Page } from 'gatsby';
 import { allWpPageType } from '../types/wpgraphql';
-import Layout from '../components/layout';
+import Layout from '../layouts';
 
 export default ({ data }: PageProps) => {
   const {allWpPage: { nodes }}: allWpPageType = data;

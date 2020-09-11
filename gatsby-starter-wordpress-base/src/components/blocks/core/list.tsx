@@ -10,18 +10,12 @@ export type ListAttributeType = {
     className?: string
 }
 
-const List: React.FC<ListAttributeType> = ({ anchor, ordered, values, className, ...rest }) => {
+const List: React.FC<ListAttributeType> = ({ anchor, ordered, values, ...rest }) => {
     const tag = ordered ? 'ol' : 'ul';
-    const twClasses = [
-        'my-10',
-        'pl-10',
-        'leading-8',
-        ordered ? 'list-decimal' : 'list-disc'
-    ];
     
     return React.createElement(
         tag,
-        { className: classnames(twClasses, className), ...rest },
+        rest,
         HTMLParse(values, { transform: transformLinks })
     );
 }

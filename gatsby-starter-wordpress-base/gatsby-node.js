@@ -1,13 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 const mkdirp = require('mkdirp');
-const deepmerge = require('deepmerge');
 
-// Queries
-const {
-  GetAllPosts,
-  GetAllPages
-} = require('./node/queries');
+// Helper functions.
+const { createPages, createPosts } = require('./lib/actions');
 
 exports.onPreBootstrap = ({ store, reporter }) => {
   const { program } = store.getState();
@@ -19,26 +15,7 @@ exports.onPreBootstrap = ({ store, reporter }) => {
   }
 }
 
-exports.createPages = async ({ actions, graphql, reporter }) => {
-  const posts = await GetAllPosts(graphql, reporter);
-  posts && posts.forEach(post => {
-    actions.createPage({
-      path: post.slug,
-      component: require.resolve('./src/templates/post.tsx'),
-      context: {
-        id: post.id
-      }
-    })
-  })
-
-  const pages = await GetAllPages(graphql, reporter);
-  pages && pages.forEach(page => {
-    actions.createPage({
-      path: page.slug,
-      component: require.resolve('./src/templates/page.tsx'),
-      context: {
-        id: page.id
-      }
-    })
-  })
+exports.createPages = async context => {
+  await createPages(context);
+  await createPosts(context);
 }

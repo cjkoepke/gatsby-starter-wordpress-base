@@ -7,7 +7,7 @@ type Props = {
 };
 
 const Block: React.FC<Props> = ({ name, attributes }): ReactElement | null => {
-  const BlockComponent: FunctionComponent | null = allBlocks[name] || null;
+  const BlockComponent: React.FC<any> | null = allBlocks[name] || null;
   if ( ! BlockComponent ) {
     return null;
   }
@@ -19,10 +19,11 @@ export const BlocksFromJSON: React.FC<{
   json: string
 }> = ({ json }) => {
   const blocks = JSON.parse(json);
-  console.log(blocks)
   return blocks && blocks.map(
-    (block, index: number) =>
-      <Block key={`${block.postId}-${block.name}-${index}`} {...block} />
+    (block, index: number) => {
+      console.log(block)
+      return <Block key={`${block.postId}-${block.name}-${index}`} {...block} />
+    }
   );
 };
 
