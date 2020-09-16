@@ -1,32 +1,43 @@
-import React from 'react';
-import { Link } from 'gatsby';
-import { getSiteMetadata } from './hooks';
-import { convertNodeToElement } from 'react-html-parser';
+import React from "react";
+import { Link as GatsbyLink } from "gatsby";
+import { getSiteMetadata } from "./hooks";
+import { domToReact } from "html-react-parser";
 
-// Block Library
-import allBlocks from '../components/blocks/supported';
+import { Link } from "@chakra-ui/core";
 
-export const transformLinks: React.FC<{
-    type: string,
-    name: string,
-    children: any,
-    attribs: {
-        href: string
+export const transformLinks = (node) => {
+  const { type, name, attribs, children } = node;
+
+  // Catch links and replace with Gatsby links.
+  if ("tag" === type && "a" === name) {
+    const { href, target, ...rest } = attribs;
+    const { baseUrl } = getSiteMetadata();
+    const url = new URL(href);
+    if (url.hostname === baseUrl) {
+      return (
+        <Link
+          color="blue.400"
+          fontWeight="bold"
+          as={GatsbyLink}
+          key={`${href}-${name}`}
+          to={url.pathname}
+          {...rest}
+        >
+          {domToReact(children)}
+        </Link>
+      );
+    } else {
+      return (
+        <Link
+          href={href}
+          color="blue.400"
+          fontWeight="bold"
+          isExternal={"_blank" === target}
+          {...rest}
+        >
+          {domToReact(children)}
+        </Link>
+      );
     }
-}> = (props, index) => {
-    const { type, name, children, attribs } = props;
-
-    // Catch links.
-    if ('tag' === type && 'a' === name ) {
-        const { href, ...rest } = attribs;
-        const { baseUrl } = getSiteMetadata();
-        const url = new URL(href);
-        if ( url.hostname === baseUrl ) {
-            return (
-                <Link key={`${href}-${index}`} to={url.pathname} {...rest}>
-                    {children && children.map(child => convertNodeToElement(child, index, transformLinks))}
-                </Link>
-            );
-        }
-    }
+  }
 };

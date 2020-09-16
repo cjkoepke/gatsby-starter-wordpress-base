@@ -1,14 +1,25 @@
-import React from 'react';
-import classnames from 'classnames';
+import React from "react";
+import { Divider } from "@chakra-ui/core";
 
 export type MoreAttributesType = {
-    noTeaser: boolean,
-    className?: string
-    anchor?: string
-}
+  noTeaser: boolean;
+  id?: string;
+  anchor?: string;
+};
 
-const More: React.FC<MoreAttributesType> = ({ noTeaser, className, anchor, ...rest }) => (
-    <hr className={classnames(`border-1 border-color-gray-300 my-8`, className)} id={anchor || null} {...rest} />
+const More: React.FC<MoreAttributesType> = ({
+  noTeaser,
+  anchor,
+  id,
+  ...rest
+}) => (
+  <Divider
+    borderBottomWidth={4}
+    borderColor="gray.300"
+    my={noTeaser ? 3 : 6}
+    id={anchor || id || null}
+    {...rest}
+  />
 );
 
 export default More;

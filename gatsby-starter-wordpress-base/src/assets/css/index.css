@@ -1,9 +1,0 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "./blocks/core/index.css";
-
-@import "tailwindcss/utilities";
-
-a {
-    @apply text-orange-400;
-}
