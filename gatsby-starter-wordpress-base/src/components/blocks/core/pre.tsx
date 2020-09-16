@@ -3,6 +3,7 @@ import HTMLParser from "html-react-parser";
 import { transformLinks } from "../../../helpers/transformers";
 
 import { Box, Button, useClipboard } from "@chakra-ui/core";
+import { IoMdCopy } from "react-icons/io";
 
 type PreAttributeTypes = {
   anchor?: string;
@@ -33,7 +34,7 @@ const Pre: React.FC<PreAttributeTypes> = ({ anchor, id, content, ...rest }) => {
         right={0}
         onClick={onCopy}
       >
-        {hasCopied ? "Copied!" : "Copy"}
+        {hasCopied ? "Copied!" : <IoMdCopy />}
       </Button>
       {HTMLParser(content, { replace: transformLinks })}
     </Box>

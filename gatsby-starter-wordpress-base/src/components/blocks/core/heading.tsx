@@ -41,6 +41,7 @@ const Heading: React.FC<HeadingType> = ({
       id={anchor || id || null}
       as={`h${level}`}
       size={getFontSize(level)}
+      mb={4}
       {...rest}
     >
       {HTMLParser(content, { replace: transformLinks })}

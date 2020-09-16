@@ -1,16 +1,16 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { BlocksFromJSON } from "../components/blocks";
 
-import { Container } from "@chakra-ui/core";
+import Blocks from "../components/blocks";
+import Layout from "../layouts";
 
 export default ({ data }) => {
   const { title, blocksJSON } = data.wpPost;
   return (
-    <Container>
+    <Layout>
       <h1>{title}</h1>
-      <BlocksFromJSON json={blocksJSON} />
-    </Container>
+      <Blocks json={blocksJSON} />
+    </Layout>
   );
 };
 

@@ -19,7 +19,7 @@ const Paragraph: React.FC<ParagraphAttributeType> = ({
   ...rest
 }) => {
   return (
-    <Text fontSize="md" {...rest} id={anchor || id || null}>
+    <Text mb={4} fontSize="md" {...rest} id={anchor || id || null}>
       {HTMLParser(content, {
         replace: transformLinks,
       })}

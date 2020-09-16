@@ -1,7 +1,7 @@
 import React from "react";
 import HTMLParse from "html-react-parser";
 import { transformLinks } from "../../../helpers/transformers";
-import { OrderedList, UnorderedList, ListItem } from "@chakra-ui/core";
+import { UnorderedList, OrderedList, ListItem } from "@chakra-ui/core";
 
 export type ListAttributeType = {
   anchor?: string;
@@ -44,7 +44,6 @@ const List: React.FC<ListAttributeType> = ({
     ? HTMLParse(values, { replace: transformLinks })
     : children;
   const updatedItems = React.Children.map(items, modifyValues);
-
   const Component = ordered ? OrderedList : UnorderedList;
   return <Component {...rest}>{updatedItems}</Component>;
 };

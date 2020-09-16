@@ -1,9 +1,10 @@
-import { graphql, GatsbyGraphQLObjectType } from "gatsby";
+import { graphql } from "gatsby";
 
 export const AllPosts = graphql`
   fragment AllPosts on Query {
     allWpPost(filter: { status: { eq: "publish" } }) {
       nodes {
+        blocksJSON
         title
         authorId
         categories {
@@ -20,7 +21,7 @@ export const AllPosts = graphql`
         content
         date
         featuredImageId
-        slug
+        link
       }
     }
   }
@@ -29,6 +30,7 @@ export const AllPages = graphql`
   fragment AllPages on Query {
     allWpPage(filter: { status: { eq: "publish" } }) {
       nodes {
+        blocksJSON
         title
         authorId
         commentCount
@@ -40,7 +42,7 @@ export const AllPages = graphql`
         content
         date
         featuredImageId
-        slug
+        link
       }
     }
   }

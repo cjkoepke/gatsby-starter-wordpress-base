@@ -6,7 +6,6 @@ module.exports = ({ baseUrl, sourceOptions: { url, ...rest } }) => {
     plugins: [
       `gatsby-plugin-sharp`,
       `gatsby-transformer-sharp`,
-      `gatsby-plugin-chakra-ui`,
       {
         resolve: `gatsby-source-filesystem`,
         options: {

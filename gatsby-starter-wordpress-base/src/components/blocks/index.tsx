@@ -1,28 +1,35 @@
-import React, { ReactElement } from "react";
-import allBlocks, { BlockDefinition } from "./supported";
+import React, { ReactElement, FunctionComponent } from "react";
+import allBlocks from "./supported";
 
-type Props = {
+export const Block: React.FC<{
   name: string;
   attributes: object;
-};
-
-const Block: React.FC<Props> = ({ name, attributes }): ReactElement | null => {
-  const block: BlockDefinition | null = allBlocks[name] || null;
-  if (!block) {
+}> = ({ name, attributes }): ReactElement | null => {
+  const BlockComponent: FunctionComponent | null = allBlocks[name] || null;
+  if (!BlockComponent) {
     return null;
   }
 
-  const BlockComponent = block.component;
   return <BlockComponent {...attributes} />;
 };
 
-export const BlocksFromJSON: React.FC<{
+const Blocks: React.FC<{
   json: string;
-}> = ({ json }) => {
+  truncate?: boolean;
+}> = ({ json, truncate = false }): ReactElement => {
   const blocks = JSON.parse(json);
+  let hitMore = false;
   return (
     blocks &&
     blocks.map((block, index: number) => {
+      if (hitMore) {
+        return null;
+      }
+
+      if (truncate && "core/more" === block.name) {
+        hitMore = true;
+      }
+
       return (
         <Block key={`${block.postId}-${block.name}-${index}`} {...block} />
       );
@@ -30,4 +37,4 @@ export const BlocksFromJSON: React.FC<{
   );
 };
 
-export default Block;
+export default Blocks;
