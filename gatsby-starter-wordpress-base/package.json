@@ -24,20 +24,21 @@
     "@types/react-html-parser": "^2.0.1",
     "gatsby": "^2.24.47",
     "mkdirp": "^1.0.4",
+    "prettier": "^2.1.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-html-parser": "^2.0.2",
-    "tailwindcss": "^1.7.6",
     "typescript": "^4.0.2"
   },
   "dependencies": {
+    "@chakra-ui/core": "^1.0.0-rc.3",
     "classnames": "^2.2.6",
+    "gatsby-plugin-chakra-ui": "^0.1.4",
     "gatsby-plugin-layout": "^1.3.10",
     "gatsby-plugin-postcss": "^2.3.11",
     "gatsby-plugin-sharp": "^2.6.27",
     "gatsby-source-filesystem": "^2.3.24",
     "gatsby-source-wordpress-experimental": "^1.3.6",
     "gatsby-transformer-sharp": "^2.5.13",
-    "postcss-import": "^12.0.1"
+    "html-react-parser": "^0.14.0"
   }
 }

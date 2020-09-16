@@ -11,7 +11,7 @@ module.exports = ({
     plugins: [
       `gatsby-plugin-sharp`,
       `gatsby-transformer-sharp`,
-      `gatsby-plugin-postcss`,
+      `gatsby-plugin-chakra-ui`,
       {
         resolve: `gatsby-plugin-layout`,
         options: {
@@ -31,7 +31,7 @@ module.exports = ({
           url: url || `https://gatsby-theme-wordpress-test-data.calvinkoepke.com/graphql`,
           ...rest
         },
-      },
+      }
     ]
   };
 }

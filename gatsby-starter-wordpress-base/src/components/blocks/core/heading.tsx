@@ -1,54 +1,51 @@
-import React from 'react';
-import HTMLParser from 'react-html-parser';
-import classnames from 'classnames';
-import { transformLinks } from '../../../helpers/transformers';
+import React from "react";
+import HTMLParser from "html-react-parser";
+import { transformLinks } from "../../../helpers/transformers";
+import { Heading as CoreHeading } from "@chakra-ui/core";
 
 type LevelsType = 1 | 2 | 3 | 4 | 5 | 6;
 
 type HeadingType = {
-    level: LevelsType,
-    content: string,
-    anchor?: string,
-    className?: string
+  level: LevelsType;
+  content: string;
+  anchor?: string;
+  id?: string;
 };
 
-const getLevelClass = (level: LevelsType): string => {
-    switch ( level ) {
-        case 1:
-            return 'text-4xl lg:text-6xl';
-        case 3:
-            return 'text-2xl lg:text-4xl';
-        case 4:
-            return 'text-xl lg:text-3xl';
-        case 5:
-            return 'text-lg lg:text-2xl';
-        case 6:
-            return 'text-xl';
-        default:
-            return 'text-3xl lg:text-5xl';
-    }
-}
+const getFontSize = (level: LevelsType): string => {
+  switch (level) {
+    case 1:
+      return `2xl`;
+    case 2:
+      return `xl`;
+    case 3:
+      return `lg`;
+    case 4:
+      return `md`;
+    case 5:
+      return `sm`;
+    case 6:
+      return `xs`;
+  }
+};
 
-const Heading: React.FC<HeadingType> = ({ level = 1, anchor, className, content, ...rest }) => {
-    const twClasses = [
-        'font-sans',
-        'font-bold',
-        'text-gray-900',
-        getLevelClass(level)
-    ];
-
-    return React.createElement(
-        `h${level}`,
-        {
-            id: anchor || null,
-            className: classnames(
-                twClasses,
-                className
-            ),
-            ...rest
-        },
-        HTMLParser(content, { transform: transformLinks })
-    );
-}
+const Heading: React.FC<HeadingType> = ({
+  level = 1,
+  anchor,
+  id,
+  content,
+  ...rest
+}) => {
+  return (
+    <CoreHeading
+      id={anchor || id || null}
+      as={`h${level}`}
+      size={getFontSize(level)}
+      {...rest}
+    >
+      {HTMLParser(content, { replace: transformLinks })}
+    </CoreHeading>
+  );
+};
 
 export default Heading;

@@ -1,8 +1,8 @@
-import { graphql, GatsbyGraphQLObjectType } from 'gatsby';
+import { graphql, GatsbyGraphQLObjectType } from "gatsby";
 
 export const AllPosts = graphql`
   fragment AllPosts on Query {
-    allWpPost(filter: {status: {eq: "publish"}}) {
+    allWpPost(filter: { status: { eq: "publish" } }) {
       nodes {
         title
         authorId
@@ -24,10 +24,10 @@ export const AllPosts = graphql`
       }
     }
   }
-`
+`;
 export const AllPages = graphql`
   fragment AllPages on Query {
-    allWpPage(filter: {status: {eq: "publish"}}) {
+    allWpPage(filter: { status: { eq: "publish" } }) {
       nodes {
         title
         authorId
@@ -44,4 +44,4 @@ export const AllPages = graphql`
       }
     }
   }
-`
+`;

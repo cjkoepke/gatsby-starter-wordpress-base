@@ -1,12 +1,12 @@
-import React, { ReactElement } from 'react';
-import { PageProps } from 'gatsby';
+import React, { ReactElement } from "react";
+import { PageProps } from "gatsby";
+import { Container } from "@chakra-ui/core";
 
-const Layout: React.SFC<{ children: any }> = ({ children, pathContext }: PageProps): ReactElement => {
-    return (
-        <main className={`container mx-auto my-16 px-6 lg:max-w-screen-md`}>
-            {children}
-        </main>
-    );
-}
+const Layout: React.SFC<{ children: any }> = ({
+  children,
+  pathContext,
+}: PageProps): ReactElement => {
+  return <Container>{children}</Container>;
+};
 
 export default Layout;
