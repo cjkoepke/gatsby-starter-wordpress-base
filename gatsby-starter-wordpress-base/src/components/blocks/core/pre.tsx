@@ -1,33 +1,42 @@
 import React from "react";
 import HTMLParser from "html-react-parser";
 import { transformLinks } from "../../../helpers/transformers";
-import classnames from "classnames";
+
+import { Box, Button, useClipboard } from "@chakra-ui/core";
 
 type PreAttributeTypes = {
   anchor?: string;
-  className?: string;
+  id?: string;
   content: string;
 };
 
-const Pre: React.FC<PreAttributeTypes> = ({
-  anchor,
-  className,
-  content,
-  ...rest
-}) => {
-  const twClasses = [
-    "bg-gray-100",
-    "rounded-md",
-    "border-2",
-    "border-gray-400",
-    "p-8",
-    "overflow-scroll",
-  ];
+const Pre: React.FC<PreAttributeTypes> = ({ anchor, id, content, ...rest }) => {
+  const { onCopy, hasCopied } = useClipboard(content);
 
   return (
-    <pre className={classnames(twClasses, className)} {...rest}>
+    <Box
+      p={8}
+      backgroundColor="gray.100"
+      borderWidth={1}
+      borderColor="gray.300"
+      overflowX="scroll"
+      position="relative"
+      as="pre"
+      id={anchor || id || null}
+      {...rest}
+    >
+      <Button
+        background="gray.300"
+        borderRadius={0}
+        position="absolute"
+        top={0}
+        right={0}
+        onClick={onCopy}
+      >
+        {hasCopied ? "Copied!" : "Copy"}
+      </Button>
       {HTMLParser(content, { replace: transformLinks })}
-    </pre>
+    </Box>
   );
 };
 

@@ -3,15 +3,15 @@ import { graphql } from "gatsby";
 import { BlocksFromJSON } from "../components/blocks";
 
 import Heading from "../components/blocks/core/heading";
-import Layout from "../layouts";
+import { Container } from "@chakra-ui/core";
 
 export default ({ data }) => {
-  const { title, blocks, blocksJSON } = data.wpPage;
+  const { title, blocksJSON } = data.wpPage;
   return (
-    <Layout>
+    <Container>
       <Heading content={title} level={1} />
       <BlocksFromJSON json={blocksJSON} />
-    </Layout>
+    </Container>
   );
 };
 
