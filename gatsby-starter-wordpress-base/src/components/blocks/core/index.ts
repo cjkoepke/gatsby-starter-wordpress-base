@@ -7,6 +7,7 @@ import Separator from "./separator";
 import List from "./list";
 import Pre from "./pre";
 import Verse from "./verse";
+import Image from "./image";
 
 const library: BlockLibraryType = {
   "core/paragraph": Paragraph,
@@ -16,6 +17,7 @@ const library: BlockLibraryType = {
   "core/list": List,
   "core/preformatted": Pre,
   "core/verse": Verse,
+  "core/image": Image
 };
 
 export default library;

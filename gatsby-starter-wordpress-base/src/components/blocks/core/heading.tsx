@@ -5,7 +5,7 @@ import { Heading as CoreHeading } from "@chakra-ui/core";
 
 type LevelsType = 1 | 2 | 3 | 4 | 5 | 6;
 
-type HeadingType = {
+export type HeadingAttributeType = {
   level: LevelsType;
   content: string;
   anchor?: string;
@@ -29,7 +29,7 @@ const getFontSize = (level: LevelsType): string => {
   }
 };
 
-const Heading: React.FC<HeadingType> = ({
+const Heading: React.FC<HeadingAttributeType> = ({
   level = 1,
   anchor,
   id,

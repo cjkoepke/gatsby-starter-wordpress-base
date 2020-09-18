@@ -4,21 +4,37 @@ import allBlocks from "./supported";
 export const Block: React.FC<{
   name: string;
   attributes: object;
-}> = ({ name, attributes }): ReactElement | null => {
+  savedContent: string;
+}> = ({ name, attributes, savedContent }): ReactElement | null => {
   const BlockComponent: FunctionComponent | null = allBlocks[name] || null;
   if (!BlockComponent) {
     return null;
   }
 
-  return <BlockComponent {...attributes} />;
+  return <BlockComponent {...{...attributes, savedContent}} />;
 };
 
 const Blocks: React.FC<{
-  json: string;
+  data?: string;
+  json?: string;
   truncate?: boolean;
-}> = ({ json, truncate = false }): ReactElement => {
-  const blocks = JSON.parse(json);
+}> = ({ data, json, truncate = false }): ReactElement | null => {
+  let blocks;
+
+  if ( data ) {
+    blocks = data;
+  }
+
+  if ( json ) {
+    blocks = JSON.parse(json);
+  }
+
+  if ( ! blocks ) {
+    return null;
+  }
+
   let hitMore = false;
+  console.log(blocks)
   return (
     blocks &&
     blocks.map((block, index: number) => {
@@ -30,8 +46,11 @@ const Blocks: React.FC<{
         hitMore = true;
       }
 
+
       return (
-        <Block key={`${block.postId}-${block.name}-${index}`} {...block} />
+        <Block key={`${block.postId}-${block.name}-${index}`} {...block}>
+          {block.innerBlocks && <Blocks data={block.innerBlocks} truncate={truncate} />}
+        </Block>
       );
     })
   );
