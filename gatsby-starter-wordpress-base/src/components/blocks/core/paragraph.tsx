@@ -3,15 +3,9 @@ import HTMLParser from "html-react-parser";
 import { transformLinks } from "../../../helpers/transformers";
 import { Text } from "@chakra-ui/core";
 
-export type ParagraphAttributeType = {
-  dropCap: boolean;
-  content: string;
-  id?: string;
-  anchor: string;
-  className: string;
-};
+import { ParagraphAttributes } from "./types";
 
-const Paragraph: React.FC<ParagraphAttributeType> = ({
+const Paragraph: React.FC<ParagraphAttributes> = ({
   dropCap,
   content,
   anchor,

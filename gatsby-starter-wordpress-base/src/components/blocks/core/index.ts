@@ -17,7 +17,7 @@ const library: BlockLibraryType = {
   "core/list": List,
   "core/preformatted": Pre,
   "core/verse": Verse,
-  "core/image": Image
+  "core/image": Image,
 };
 
 export default library;

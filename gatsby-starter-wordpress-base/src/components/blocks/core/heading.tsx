@@ -3,16 +3,13 @@ import HTMLParser from "html-react-parser";
 import { transformLinks } from "../../../helpers/transformers";
 import { Heading as CoreHeading } from "@chakra-ui/core";
 
-type LevelsType = 1 | 2 | 3 | 4 | 5 | 6;
+import {
+  HeadingClassesFunction,
+  HeadingLevels,
+  HeadingAttributes,
+} from "./types";
 
-export type HeadingAttributeType = {
-  level: LevelsType;
-  content: string;
-  anchor?: string;
-  id?: string;
-};
-
-const getFontSize = (level: LevelsType): string => {
+const getFontSize: HeadingClassesFunction = (level: HeadingLevels) => {
   switch (level) {
     case 1:
       return `2xl`;
@@ -29,7 +26,7 @@ const getFontSize = (level: LevelsType): string => {
   }
 };
 
-const Heading: React.FC<HeadingAttributeType> = ({
+const Heading: React.FC<HeadingAttributes> = ({
   level = 1,
   anchor,
   id,

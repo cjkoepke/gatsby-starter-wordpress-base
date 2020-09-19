@@ -1,17 +1,12 @@
 import React from "react";
 import HTMLParser from "html-react-parser";
 import { transformLinks } from "../../../helpers/transformers";
-
 import { Box, Button, useClipboard } from "@chakra-ui/core";
 import { IoMdCopy } from "react-icons/io";
 
-type PreAttributeTypes = {
-  anchor?: string;
-  id?: string;
-  content: string;
-};
+import { PreAttributes } from "./types";
 
-const Pre: React.FC<PreAttributeTypes> = ({ anchor, id, content, ...rest }) => {
+const Pre: React.FC<PreAttributes> = ({ anchor, id, content, ...rest }) => {
   const { onCopy, hasCopied } = useClipboard(content);
 
   return (

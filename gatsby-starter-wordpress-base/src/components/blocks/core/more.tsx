@@ -2,18 +2,9 @@ import React from "react";
 import { Divider, Flex, useTheme } from "@chakra-ui/core";
 import { IoIosMore } from "react-icons/io";
 
-export type MoreAttributesType = {
-  noTeaser: boolean;
-  id?: string;
-  anchor?: string;
-};
+import { MoreAttributes } from "./types";
 
-const More: React.FC<MoreAttributesType> = ({
-  noTeaser,
-  anchor,
-  id,
-  ...rest
-}) => {
+const More: React.FC<MoreAttributes> = ({ noTeaser, anchor, id, ...rest }) => {
   const { colors } = useTheme();
   return (
     <Flex alignItems="center">

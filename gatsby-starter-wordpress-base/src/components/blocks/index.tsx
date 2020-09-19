@@ -1,55 +1,42 @@
-import React, { ReactElement, FunctionComponent } from "react";
+import React from "react";
 import allBlocks from "./supported";
 
-export const Block: React.FC<{
-  name: string;
-  attributes: object;
-  savedContent: string;
-}> = ({ name, attributes, savedContent }): ReactElement | null => {
-  const BlockComponent: FunctionComponent | null = allBlocks[name] || null;
+import { BlockProps, BlocksProps } from "./types";
+
+export const Block: React.FC<BlockProps> = ({ name, attributes }) => {
+  const BlockComponent: React.FC | null = allBlocks[name] || null;
   if (!BlockComponent) {
     return null;
   }
 
-  return <BlockComponent {...{...attributes, savedContent}} />;
+  return <BlockComponent {...attributes} />;
 };
 
-const Blocks: React.FC<{
-  data?: string;
-  json?: string;
-  truncate?: boolean;
-}> = ({ data, json, truncate = false }): ReactElement | null => {
-  let blocks;
+const Blocks: React.FC<BlocksProps> = ({ data, json, truncate = false }) => {
+  const blocks = data || (json && JSON.parse(json)) || null;
 
-  if ( data ) {
-    blocks = data;
-  }
-
-  if ( json ) {
-    blocks = JSON.parse(json);
-  }
-
-  if ( ! blocks ) {
+  if (!blocks) {
     return null;
   }
 
-  let hitMore = false;
-  console.log(blocks)
+  let moreReached = false;
+
   return (
     blocks &&
     blocks.map((block, index: number) => {
-      if (hitMore) {
+      if (moreReached) {
         return null;
       }
 
       if (truncate && "core/more" === block.name) {
-        hitMore = true;
+        moreReached = true;
       }
-
 
       return (
         <Block key={`${block.postId}-${block.name}-${index}`} {...block}>
-          {block.innerBlocks && <Blocks data={block.innerBlocks} truncate={truncate} />}
+          {block.innerBlocks && (
+            <Blocks data={block.innerBlocks} truncate={truncate} />
+          )}
         </Block>
       );
     })

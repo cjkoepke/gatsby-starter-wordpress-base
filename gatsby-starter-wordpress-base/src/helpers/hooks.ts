@@ -1,5 +1,5 @@
 import { graphql, useStaticQuery } from "gatsby";
-import { SiteMetadata } from "../types/gatsby";
+import { SiteMetadata } from "../@types/gatsby";
 
 export const getSiteMetadata = (): {
   baseUrl: string;

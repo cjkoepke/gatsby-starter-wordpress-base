@@ -2,13 +2,9 @@ import React from "react";
 import { removeClassesFromArray } from "../../../helpers/functions";
 import { Divider, DividerProps } from "@chakra-ui/core";
 
-export type SeparatorAttributeType = {
-  anchor: string;
-  className?: string;
-  id?: string;
-};
+import { SeparatorAttributes } from "./types";
 
-const Separator: React.FC<SeparatorAttributeType> = ({
+const Separator: React.FC<SeparatorAttributes> = ({
   anchor,
   id,
   className,
