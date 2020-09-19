@@ -1,11 +1,11 @@
 import React from "react";
-import HTMLParse from "html-react-parser";
-import { transformLinks } from "../../../helpers/transformers";
+import parse from "html-react-parser";
+import { replacer } from "../../../helpers/transformers";
 
 import { ImageAttributes } from "./types";
 
-const Image: React.FC<ImageAttributes> = ({ url, alt }) => (
-  <img src={url} alt={alt} />
+const Image: React.FC<ImageAttributes> = ({ url, alt, saveContent }) => (
+  <>{parse(saveContent, { replace: replacer })}</>
 );
 
 export default Image;

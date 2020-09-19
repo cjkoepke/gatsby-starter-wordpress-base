@@ -1,12 +1,18 @@
 import React from "react";
 import HTMLParser from "html-react-parser";
-import { transformLinks } from "../../../helpers/transformers";
+import { replacer } from "../../../helpers/transformers";
 import { Box, Button, useClipboard } from "@chakra-ui/core";
 import { IoMdCopy } from "react-icons/io";
 
 import { PreAttributes } from "./types";
 
-const Pre: React.FC<PreAttributes> = ({ anchor, id, content, ...rest }) => {
+const Pre: React.FC<PreAttributes> = ({
+  anchor,
+  id,
+  content,
+  saveContent,
+  ...rest
+}) => {
   const { onCopy, hasCopied } = useClipboard(content);
 
   return (
@@ -31,7 +37,7 @@ const Pre: React.FC<PreAttributes> = ({ anchor, id, content, ...rest }) => {
       >
         {hasCopied ? "Copied!" : <IoMdCopy />}
       </Button>
-      {HTMLParser(content, { replace: transformLinks })}
+      {HTMLParser(content, { replace: replacer })}
     </Box>
   );
 };

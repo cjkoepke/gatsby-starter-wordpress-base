@@ -1,6 +1,6 @@
 import React from "react";
 import HTMLParser from "html-react-parser";
-import { transformLinks } from "../../../helpers/transformers";
+import { replacer } from "../../../helpers/transformers";
 import { Text } from "@chakra-ui/core";
 
 import { ParagraphAttributes } from "./types";
@@ -10,12 +10,13 @@ const Paragraph: React.FC<ParagraphAttributes> = ({
   content,
   anchor,
   id,
+  saveContent,
   ...rest
 }) => {
   return (
     <Text mb={4} fontSize="md" {...rest} id={anchor || id || null}>
       {HTMLParser(content, {
-        replace: transformLinks,
+        replace: replacer,
       })}
     </Text>
   );

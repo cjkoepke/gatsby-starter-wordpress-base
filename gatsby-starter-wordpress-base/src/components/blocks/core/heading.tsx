@@ -1,6 +1,6 @@
 import React from "react";
 import HTMLParser from "html-react-parser";
-import { transformLinks } from "../../../helpers/transformers";
+import { replacer } from "../../../helpers/transformers";
 import { Heading as CoreHeading } from "@chakra-ui/core";
 
 import {
@@ -31,6 +31,7 @@ const Heading: React.FC<HeadingAttributes> = ({
   anchor,
   id,
   content,
+  saveContent,
   ...rest
 }) => {
   return (
@@ -41,7 +42,7 @@ const Heading: React.FC<HeadingAttributes> = ({
       mb={4}
       {...rest}
     >
-      {HTMLParser(content, { replace: transformLinks })}
+      {HTMLParser(content, { replace: replacer })}
     </CoreHeading>
   );
 };

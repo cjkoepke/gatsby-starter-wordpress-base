@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import HTMLParse from "html-react-parser";
-import { transformLinks } from "../../../helpers/transformers";
+import { replacer } from "../../../helpers/transformers";
 import { UnorderedList, OrderedList, ListItem } from "@chakra-ui/core";
 
 import { ListAttributes } from "./types";
@@ -31,9 +31,11 @@ const List: React.FC<ListAttributes> = ({
   anchor,
   ordered,
   values,
+  children,
+  saveContent,
   ...rest
 }) => {
-  const items = values ? HTMLParse(values, { replace: transformLinks }) : null;
+  const items = values ? HTMLParse(values, { replace: replacer }) : children;
 
   if (!items) {
     return null;

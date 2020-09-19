@@ -1,7 +1,7 @@
 export interface BlockProps {
   name?: string;
   attributes?: object;
-  savedContent?: string;
+  saveContent?: string;
 }
 
 export interface BlocksProps {

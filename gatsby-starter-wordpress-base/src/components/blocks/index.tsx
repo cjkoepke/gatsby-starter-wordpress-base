@@ -3,13 +3,17 @@ import allBlocks from "./supported";
 
 import { BlockProps, BlocksProps } from "./types";
 
-export const Block: React.FC<BlockProps> = ({ name, attributes }) => {
-  const BlockComponent: React.FC | null = allBlocks[name] || null;
+export const Block: React.FC<BlockProps> = ({
+  name,
+  attributes,
+  saveContent,
+}) => {
+  const BlockComponent: React.FC<BlockProps> | null = allBlocks[name] || null;
   if (!BlockComponent) {
     return null;
   }
 
-  return <BlockComponent {...attributes} />;
+  return <BlockComponent {...attributes} saveContent={saveContent} />;
 };
 
 const Blocks: React.FC<BlocksProps> = ({ data, json, truncate = false }) => {
@@ -31,6 +35,8 @@ const Blocks: React.FC<BlocksProps> = ({ data, json, truncate = false }) => {
       if (truncate && "core/more" === block.name) {
         moreReached = true;
       }
+
+      console.log(block);
 
       return (
         <Block key={`${block.postId}-${block.name}-${index}`} {...block}>

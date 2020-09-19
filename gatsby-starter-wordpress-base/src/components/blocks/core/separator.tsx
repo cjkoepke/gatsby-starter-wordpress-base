@@ -8,6 +8,7 @@ const Separator: React.FC<SeparatorAttributes> = ({
   anchor,
   id,
   className,
+  saveContent,
   ...rest
 }) => {
   const dividerProps: DividerProps = {

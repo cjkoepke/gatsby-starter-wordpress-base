@@ -26,7 +26,6 @@ export interface ImageAttributes extends BlockProps {
   rel?: string;
   title?: string;
   url: string;
-  savedContent: string;
 }
 
 export interface ListAttributes extends BlockProps {
