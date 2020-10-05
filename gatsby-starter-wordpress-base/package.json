@@ -10,7 +10,8 @@
   "scripts": {
     "build": "gatsby build",
     "clean": "gatsby clean",
-    "develop": "gatsby develop"
+    "develop": "gatsby develop",
+    "format": "prettier --write ."
   },
   "peerDependencies": {
     "deepmerge": "^4.2.2",

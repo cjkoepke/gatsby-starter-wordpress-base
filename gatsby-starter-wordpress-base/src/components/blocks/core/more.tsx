@@ -1,8 +1,8 @@
-import React from "react";
-import { Divider, Flex, useTheme } from "@chakra-ui/core";
-import { IoIosMore } from "react-icons/io";
+import React from 'react'
+import { Divider, Flex, useTheme } from '@chakra-ui/core'
+import { IoIosMore } from 'react-icons/io'
 
-import { MoreAttributes } from "./types";
+import { MoreAttributes } from './types'
 
 const More: React.FC<MoreAttributes> = ({
   noTeaser,
@@ -11,7 +11,7 @@ const More: React.FC<MoreAttributes> = ({
   saveContent,
   ...rest
 }) => {
-  const { colors } = useTheme();
+  const { colors } = useTheme()
   return (
     <Flex alignItems="center">
       <Divider
@@ -24,7 +24,7 @@ const More: React.FC<MoreAttributes> = ({
       <IoIosMore
         size="50px"
         color={colors.gray[600]}
-        style={{ margin: "0 20px 0" }}
+        style={{ margin: '0 20px 0' }}
       />
       <Divider
         borderBottomWidth={4}
@@ -34,7 +34,7 @@ const More: React.FC<MoreAttributes> = ({
         {...rest}
       />
     </Flex>
-  );
-};
+  )
+}
 
-export default More;
+export default More

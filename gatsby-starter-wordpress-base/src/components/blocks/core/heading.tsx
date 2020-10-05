@@ -1,30 +1,30 @@
-import React from "react";
-import HTMLParser from "html-react-parser";
-import { replacer } from "../../../helpers/transformers";
-import { Heading as CoreHeading } from "@chakra-ui/core";
+import React from 'react'
+import HTMLParser from 'html-react-parser'
+import { replacer } from '../../../helpers/transformers'
+import { Heading as CoreHeading } from '@chakra-ui/core'
 
 import {
   HeadingClassesFunction,
   HeadingLevels,
   HeadingAttributes,
-} from "./types";
+} from './types'
 
 const getFontSize: HeadingClassesFunction = (level: HeadingLevels) => {
   switch (level) {
     case 1:
-      return `2xl`;
+      return `2xl`
     case 2:
-      return `xl`;
+      return `xl`
     case 3:
-      return `lg`;
+      return `lg`
     case 4:
-      return `md`;
+      return `md`
     case 5:
-      return `sm`;
+      return `sm`
     case 6:
-      return `xs`;
+      return `xs`
   }
-};
+}
 
 const Heading: React.FC<HeadingAttributes> = ({
   level = 1,
@@ -44,7 +44,7 @@ const Heading: React.FC<HeadingAttributes> = ({
     >
       {HTMLParser(content, { replace: replacer })}
     </CoreHeading>
-  );
-};
+  )
+}
 
-export default Heading;
+export default Heading

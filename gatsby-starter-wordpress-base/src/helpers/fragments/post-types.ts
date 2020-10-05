@@ -1,4 +1,4 @@
-import { graphql } from "gatsby";
+import { graphql } from 'gatsby'
 
 export const AllPosts = graphql`
   fragment AllPosts on Query {
@@ -25,7 +25,7 @@ export const AllPosts = graphql`
       }
     }
   }
-`;
+`
 export const AllPages = graphql`
   fragment AllPages on Query {
     allWpPage(filter: { status: { eq: "publish" } }) {
@@ -46,4 +46,4 @@ export const AllPages = graphql`
       }
     }
   }
-`;
+`

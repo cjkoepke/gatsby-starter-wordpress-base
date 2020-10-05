@@ -1,9 +1,9 @@
-import React from "react";
-import HTMLParser from "html-react-parser";
-import { replacer } from "../../../helpers/transformers";
-import { Text } from "@chakra-ui/core";
+import React from 'react'
+import HTMLParser from 'html-react-parser'
+import { replacer } from '../../../helpers/transformers'
+import { Text } from '@chakra-ui/core'
 
-import { ParagraphAttributes } from "./types";
+import { ParagraphAttributes } from './types'
 
 const Paragraph: React.FC<ParagraphAttributes> = ({
   dropCap,
@@ -19,7 +19,7 @@ const Paragraph: React.FC<ParagraphAttributes> = ({
         replace: replacer,
       })}
     </Text>
-  );
-};
+  )
+}
 
-export default Paragraph;
+export default Paragraph

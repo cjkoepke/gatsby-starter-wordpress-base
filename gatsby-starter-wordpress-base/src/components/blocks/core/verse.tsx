@@ -1,9 +1,9 @@
-import React from "react";
-import HTMLParser from "html-react-parser";
-import { replacer } from "../../../helpers/transformers";
-import { Box } from "@chakra-ui/core";
+import React from 'react'
+import HTMLParser from 'html-react-parser'
+import { replacer } from '../../../helpers/transformers'
+import { Box } from '@chakra-ui/core'
 
-import { VerseAttributes } from "./types";
+import { VerseAttributes } from './types'
 
 const Verse: React.FC<VerseAttributes> = ({
   anchor,
@@ -27,7 +27,7 @@ const Verse: React.FC<VerseAttributes> = ({
     >
       {HTMLParser(content, { replace: replacer })}
     </Box>
-  );
-};
+  )
+}
 
-export default Verse;
+export default Verse

@@ -1,30 +1,30 @@
-import React, { ReactNode } from "react";
-import HTMLParse from "html-react-parser";
-import { replacer } from "../../../helpers/transformers";
-import { UnorderedList, OrderedList, ListItem } from "@chakra-ui/core";
+import React, { ReactNode } from 'react'
+import HTMLParse from 'html-react-parser'
+import { replacer } from '../../../helpers/transformers'
+import { UnorderedList, OrderedList, ListItem } from '@chakra-ui/core'
 
-import { ListAttributes } from "./types";
+import { ListAttributes } from './types'
 
 /**
  * Recursively update the nested elements returned by the HTML Parser.
  */
 function updateChildren(child: JSX.Element): ReactNode {
-  const { type, props } = child;
-  if (["ul", "ol"].includes(type)) {
+  const { type, props } = child
+  if (['ul', 'ol'].includes(type)) {
     return (
-      <List anchor={props.id} ordered={"ol" === type}>
+      <List anchor={props.id} ordered={'ol' === type}>
         {React.Children.map(props.children, updateChildren)}
       </List>
-    );
+    )
   }
 
-  if ("li" === type) {
+  if ('li' === type) {
     return (
       <ListItem>{React.Children.map(props.children, updateChildren)}</ListItem>
-    );
+    )
   }
 
-  return child;
+  return child
 }
 
 const List: React.FC<ListAttributes> = ({
@@ -35,15 +35,15 @@ const List: React.FC<ListAttributes> = ({
   saveContent,
   ...rest
 }) => {
-  const items = values ? HTMLParse(values, { replace: replacer }) : children;
+  const items = values ? HTMLParse(values, { replace: replacer }) : children
 
   if (!items) {
-    return null;
+    return null
   }
 
-  const updatedItems = React.Children.map(items, updateChildren);
-  const Component = ordered ? OrderedList : UnorderedList;
-  return <Component {...rest}>{updatedItems}</Component>;
-};
+  const updatedItems = React.Children.map(items, updateChildren)
+  const Component = ordered ? OrderedList : UnorderedList
+  return <Component {...rest}>{updatedItems}</Component>
+}
 
-export default List;
+export default List

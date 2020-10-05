@@ -1,18 +1,18 @@
-import React from "react";
-import { graphql } from "gatsby";
+import React from 'react'
+import { graphql } from 'gatsby'
 
-import Blocks from "../components/blocks";
-import Layout from "../layouts";
+import Blocks from '../components/blocks'
+import Layout from '../layouts'
 
 export default ({ data }) => {
-  const { title, blocksJSON } = data.wpPost;
+  const { title, blocksJSON } = data.wpPost
   return (
     <Layout>
       <h1>{title}</h1>
       <Blocks json={blocksJSON} />
     </Layout>
-  );
-};
+  )
+}
 
 export const query = graphql`
   query($id: String!) {
@@ -37,4 +37,4 @@ export const query = graphql`
       slug
     }
   }
-`;
+`

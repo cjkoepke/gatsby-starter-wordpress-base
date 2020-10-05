@@ -1,19 +1,19 @@
-import React from "react";
-import { graphql } from "gatsby";
-import Blocks from "../components/blocks";
+import React from 'react'
+import { graphql } from 'gatsby'
+import Blocks from '../components/blocks'
 
-import Heading from "../components/blocks/core/heading";
-import Layout from "../layouts";
+import Heading from '../components/blocks/core/heading'
+import Layout from '../layouts'
 
 export default ({ data }) => {
-  const { title, blocksJSON } = data.wpPage;
+  const { title, blocksJSON } = data.wpPage
   return (
     <Layout>
       <Heading content={title} level={1} />
       <Blocks json={blocksJSON} />
     </Layout>
-  );
-};
+  )
+}
 
 export const query = graphql`
   query($id: String!) {
@@ -33,4 +33,4 @@ export const query = graphql`
       slug
     }
   }
-`;
+`

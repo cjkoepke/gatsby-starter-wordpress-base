@@ -1,8 +1,8 @@
-import React from "react";
-import { getSiteMetadata } from "../helpers/hooks";
-import { Link as GatsbyLink } from "gatsby";
-import { Link as CoreLink, LinkProps } from "@chakra-ui/core";
-import { IoMdOpen } from "react-icons/io";
+import React from 'react'
+import { getSiteMetadata } from '../helpers/hooks'
+import { Link as GatsbyLink } from 'gatsby'
+import { Link as CoreLink, LinkProps } from '@chakra-ui/core'
+import { IoMdOpen } from 'react-icons/io'
 
 const Link: React.FC<LinkProps & { to?: string }> = ({
   href,
@@ -12,29 +12,29 @@ const Link: React.FC<LinkProps & { to?: string }> = ({
   ...rest
 }) => {
   const styleProps = {
-    color: "blue.400",
-    fontWeight: "bold",
-  };
+    color: 'blue.400',
+    fontWeight: 'bold',
+  }
 
-  const relative = to || 0 === href.indexOf("/");
+  const relative = to || 0 === href.indexOf('/')
 
   if (relative) {
     return (
       <CoreLink as={GatsbyLink} to={to || href} {...styleProps} {...rest}>
         {children}
       </CoreLink>
-    );
+    )
   }
 
-  const { baseUrl } = getSiteMetadata();
-  const url = new URL(href);
+  const { baseUrl } = getSiteMetadata()
+  const url = new URL(href)
 
   if (url.hostname === baseUrl) {
     return (
       <CoreLink as={GatsbyLink} to={url.pathname} {...styleProps} {...rest}>
         {children}
       </CoreLink>
-    );
+    )
   } else {
     return (
       <CoreLink
@@ -42,14 +42,14 @@ const Link: React.FC<LinkProps & { to?: string }> = ({
         display="inline-flex"
         alignItems="center"
         href={href}
-        isExternal={"_blank" === target}
+        isExternal={'_blank' === target}
         {...rest}
       >
         {children}
-        <IoMdOpen style={{ marginLeft: "4px" }} />
+        <IoMdOpen style={{ marginLeft: '4px' }} />
       </CoreLink>
-    );
+    )
   }
-};
+}
 
-export default Link;
+export default Link

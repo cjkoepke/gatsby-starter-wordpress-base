@@ -1,5 +1,5 @@
-import React from "react";
-import { ColorModeScript, ChakraProvider, Container } from "@chakra-ui/core";
+import React from 'react'
+import { ColorModeScript, ChakraProvider, Container } from '@chakra-ui/core'
 
 export default ({ children }) => (
   <>
@@ -8,4 +8,4 @@ export default ({ children }) => (
       <Container>{children}</Container>
     </ChakraProvider>
   </>
-);
+)

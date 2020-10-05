@@ -1,10 +1,10 @@
-import React from "react";
-import HTMLParser from "html-react-parser";
-import { replacer } from "../../../helpers/transformers";
-import { Box, Button, useClipboard } from "@chakra-ui/core";
-import { IoMdCopy } from "react-icons/io";
+import React from 'react'
+import HTMLParser from 'html-react-parser'
+import { replacer } from '../../../helpers/transformers'
+import { Box, Button, useClipboard } from '@chakra-ui/core'
+import { IoMdCopy } from 'react-icons/io'
 
-import { PreAttributes } from "./types";
+import { PreAttributes } from './types'
 
 const Pre: React.FC<PreAttributes> = ({
   anchor,
@@ -13,7 +13,7 @@ const Pre: React.FC<PreAttributes> = ({
   saveContent,
   ...rest
 }) => {
-  const { onCopy, hasCopied } = useClipboard(content);
+  const { onCopy, hasCopied } = useClipboard(content)
 
   return (
     <Box
@@ -35,11 +35,11 @@ const Pre: React.FC<PreAttributes> = ({
         right={0}
         onClick={onCopy}
       >
-        {hasCopied ? "Copied!" : <IoMdCopy />}
+        {hasCopied ? 'Copied!' : <IoMdCopy />}
       </Button>
       {HTMLParser(content, { replace: replacer })}
     </Box>
-  );
-};
+  )
+}
 
-export default Pre;
+export default Pre

@@ -1,42 +1,41 @@
-import React from "react";
-import allBlocks from "./supported";
+import React from 'react'
+import allBlocks from './supported'
 
-import { BlockProps, BlocksProps } from "./types";
+import { BlockProps, BlocksProps } from './types'
 
 export const Block: React.FC<BlockProps> = ({
   name,
   attributes,
   saveContent,
 }) => {
-  const BlockComponent: React.FC<BlockProps> | null = allBlocks[name] || null;
+  const BlockComponent: React.FC<BlockProps> | null = allBlocks[name] || null
   if (!BlockComponent) {
-    return null;
+    return null
   }
 
-  return <BlockComponent {...attributes} saveContent={saveContent} />;
-};
+  return <BlockComponent {...attributes} saveContent={saveContent} />
+}
 
 const Blocks: React.FC<BlocksProps> = ({ data, json, truncate = false }) => {
-  const blocks = data || (json && JSON.parse(json)) || null;
+  const blocks = data || (json && JSON.parse(json)) || null
+  console.log(JSON.parse(json))
 
   if (!blocks) {
-    return null;
+    return null
   }
 
-  let moreReached = false;
+  let moreReached = false
 
   return (
     blocks &&
     blocks.map((block, index: number) => {
       if (moreReached) {
-        return null;
+        return null
       }
 
-      if (truncate && "core/more" === block.name) {
-        moreReached = true;
+      if (truncate && 'core/more' === block.name) {
+        moreReached = true
       }
-
-      console.log(block);
 
       return (
         <Block key={`${block.postId}-${block.name}-${index}`} {...block}>
@@ -44,9 +43,9 @@ const Blocks: React.FC<BlocksProps> = ({ data, json, truncate = false }) => {
             <Blocks data={block.innerBlocks} truncate={truncate} />
           )}
         </Block>
-      );
+      )
     })
-  );
-};
+  )
+}
 
-export default Blocks;
+export default Blocks
